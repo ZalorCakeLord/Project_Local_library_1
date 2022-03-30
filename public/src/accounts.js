@@ -11,7 +11,7 @@ function getTotalNumberOfBorrows(account, books) {
   let borrowedCount = 0
   for(let book in books){
     let {borrows} = books[book]
-    //borrows.reduce((item)=>{if(item.id===id){borrowedCount+=1}})
+    
     borrows.forEach(item => {
       if(item.id===id){borrowedCount+=1}
     });
