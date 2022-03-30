@@ -13,7 +13,6 @@ function findBookById(books, id) {
 function partitionBooksByBorrowedStatus(books) {
   const borrowed = books.filter((book)=>book.borrows[0].returned===false)
   const returned = books.filter((book)=>book.borrows[0].returned===true)
-  returned[1].title = '<p style="  font-size: 80px; color: #fff; text-align: center; -webkit-animation: glow 1s ease-in-out infinite alternate; -moz-animation: glow 1s ease-in-out infinite alternate; animation: glow 1s ease-in-out infinite alternate;">Equivocatus Mortis</p>'
   //delete above before turning in
   return [borrowed,returned]
 }

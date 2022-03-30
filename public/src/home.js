@@ -26,7 +26,7 @@ function getMostCommonGenres(books) {
   let ordered = [];
   let genres = books.reduce((genres, book)=>{   ///acc={}
     if(genres[book.genre]){  //I'm in your github, stealing your codes >:)
-        genres[book.genre]+=1;
+        genres[book.genre]++;
     } else{
         genres[book.genre] = 1;
     }
