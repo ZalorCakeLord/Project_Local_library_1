@@ -1,9 +1,14 @@
+function _count(array){
+  return array.length
+}
+
+
 function getTotalBooksCount(books) {
-  return books.length
+  return _count(books)
 }
 
 function getTotalAccountsCount(accounts) {
-  return accounts.length
+  return _count(accounts)
 }
 
 function getBooksBorrowedCount(books) {
@@ -19,12 +24,15 @@ function getBooksBorrowedCount(books) {
 
 function getMostCommonGenres(books) {
   let ordered = [];
-  let genres = {}
+  let genres = books.reduce((genres, book)=>{   ///acc={}
+    if(genres[book.genre]){  //I'm in your github, stealing your codes >:)
+        genres[book.genre]+=1;
+    } else{
+        genres[book.genre] = 1;
+    }
+    return genres;
+  },{});
   let output = []
-  for(let book in books){//loop through books getting genres
-    genre = books[book].genre
-    if(genres[genre]){genres[genre]+=1}else{genres[genre] = 1}
-  }
   for (let genre in genres) {
       ordered.push([genre, genres[genre]]);
   }

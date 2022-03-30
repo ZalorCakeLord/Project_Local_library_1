@@ -17,14 +17,14 @@ function getBorrowersForBook(book, accounts) {
   let output = []
   let returnlist = []
   for(let borrow in borrows){
-    for(let account in accounts){
-      if(borrows[borrow].id===accounts[account].id){
+    accounts.map((account)=>{if(borrows[borrow].id===account.id){
        
-        accounts[account].returned = borrows[borrow].returned
-        output.push(accounts[account])
-      }
-    }
+      account.returned = borrows[borrow].returned
+      output.push(account)
+      return account
+    }})
   }
+  console.log(output)
   for(let i=0;i<10;i++){
     if(output[i]){returnlist.push(output[i])}
   }
